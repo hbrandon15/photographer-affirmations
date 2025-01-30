@@ -1,0 +1,12 @@
+{
+  "name": "message-generator",
+  "version": "1.0.0",
+  "description": "This program will simply display words of wisdom for creatives and photographers who need words of affirmation.",
+  "main": "messageGenerator.js",
+  "scripts": {
+    "start": "node messageGenerator.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
