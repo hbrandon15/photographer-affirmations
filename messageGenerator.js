@@ -14,34 +14,48 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function generateMessage() {
+function generateQuote() {
   const randomIndex = getRandomInt(quotes.length);
   return quotes[randomIndex];
 }
 
-function getFirstWord(message) {
-  const firstWord = message.split(" ")[0];
+function getFirstWord(quote) {
+  const firstWord = quote.split(" ")[0];
   return firstWord;
 }
 
-function getRandomWords(message, numberOfWords) {
-  const words = message.split(" ");
+function getRandomWords(quote, numberOfWords) {
+  const allWords = [];
+
+  // Combine words from all quotes
+  quotes.forEach((quote) => {
+    const cleanedQuote = quote.replace(/[.-]/g, "");
+    const words = cleanedQuote.split(" ");
+    words.forEach((word) => {
+		allWords.push(word.trim().toLowerCase());
+  });
+  });
+
   const randomWords = [];
 
   for (let i = 0; i < numberOfWords; i++) {
-    const randomIndex = getRandomInt(words.length);
-    randomWords.push(words[randomIndex].toLowerCase());
+    const randomIndex = getRandomInt(allWords.length);
+    randomWords.push(allWords[randomIndex]);
   }
 
   return randomWords.join(" ");
 }
 
-const randomQuote = generateMessage();
-const firstWord = getFirstWord(randomQuote);
-const newQuote = firstWord + ' ' + getRandomWords(generateMessage(), 4) + '.';
+const randomQuote1 = generateQuote();
+const randomQuote2 = generateQuote();
+const randomQuote3 = generateQuote();
+const firstWord = getFirstWord(randomQuote1);
 
-console.log(randomQuote);
-console.log(`The first word of the message: ${firstWord}`);
-console.log(`New random message: ${newQuote}`);
+const shuffledQuote =
+  firstWord + ' ' + getRandomWords([randomQuote1, randomQuote2, randomQuote3], 4) + ".";
 
-
+console.log(randomQuote1);
+console.log(randomQuote2);
+console.log(randomQuote3);
+console.log(`The first word of the quote: ${firstWord}`);
+console.log(`New random quote: ${shuffledQuote}`);
