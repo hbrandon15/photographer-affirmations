@@ -19,4 +19,29 @@ function generateMessage() {
   return quotes[randomIndex];
 }
 
-console.log(generateMessage());
+function getFirstWord(message) {
+  const firstWord = message.split(" ")[0];
+  return firstWord;
+}
+
+function getRandomWords(message, numberOfWords) {
+  const words = message.split(" ");
+  const randomWords = [];
+
+  for (let i = 0; i < numberOfWords; i++) {
+    const randomIndex = getRandomInt(words.length);
+    randomWords.push(words[randomIndex].toLowerCase());
+  }
+
+  return randomWords.join(" ");
+}
+
+const randomQuote = generateMessage();
+const firstWord = getFirstWord(randomQuote);
+const newQuote = firstWord + ' ' + getRandomWords(generateMessage(), 4) + '.';
+
+console.log(randomQuote);
+console.log(`The first word of the message: ${firstWord}`);
+console.log(`New random message: ${newQuote}`);
+
+
