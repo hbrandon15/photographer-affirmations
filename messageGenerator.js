@@ -19,4 +19,13 @@ function generateMessage() {
   return quotes[randomIndex];
 }
 
-console.log(generateMessage());
+function getRandomCharacterFromMessage(message) {
+	  const randomIndex = getRandomInt(message.length);
+  return message[randomIndex];
+}
+
+const randomMessage = generateMessage();
+const randomCharacter = getRandomCharacterFromMessage(randomMessage);
+
+console.log(randomMessage);
+console.log(`Random Character from message: ${randomCharacter}`);
