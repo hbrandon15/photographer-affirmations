@@ -36,9 +36,12 @@ function getRandomWords(message, numberOfWords) {
   return randomWords.join(" ");
 }
 
-const randomMessage = generateMessage();
-const firstWord = getFirstWord(randomMessage);
+const randomQuote = generateMessage();
+const firstWord = getFirstWord(randomQuote);
+const newQuote = firstWord + ' ' + getRandomWords(randomQuote, 3);
 
-console.log(randomMessage);
+console.log(randomQuote);
 console.log(`The first word of the message: ${firstWord}`);
-console.log(`Random words from the message: ${getRandomWords(randomMessage, 3)}`);
+console.log(`New random message: ${newQuote}`);
+
+
