@@ -14,7 +14,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function generateMessage() {
+function generateQuote() {
   const randomIndex = getRandomInt(quotes.length);
   return quotes[randomIndex];
 }
@@ -37,10 +37,10 @@ function getRandomWords(message, numberOfWords) {
   return randomWords.join(" ");
 }
 
-const randomQuote = generateMessage();
+const randomQuote = generateQuote();
 const firstWord = getFirstWord(randomQuote);
 const shuffledQuote =
-  firstWord + " " + getRandomWords(generateMessage(), 4) + ".";
+  firstWord + " " + getRandomWords(generateQuote(), 4) + ".";
 
 console.log(randomQuote);
 console.log(`The first word of the quote: ${firstWord}`);
