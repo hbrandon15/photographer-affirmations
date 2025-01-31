@@ -19,20 +19,14 @@ function generateMessage() {
   return quotes[randomIndex];
 }
 
-function getRandomCharacterFromMessage(message) {
-	  const randomIndex = getRandomInt(message.length);
-	  if(message[randomIndex] === ' ') {
-	    randomIndex = getRandomInt(message.length);
-	  }
-	  else {
-	    return message[randomIndex];
-	  }
-	   
- 
+function getFirstWord(message) {
+
+	const firstWord = message.split(' ')[0];
+	return firstWord;
 }
 
 const randomMessage = generateMessage();
-const randomCharacter = getRandomCharacterFromMessage(randomMessage);
+const firstWord = getFirstWord(randomMessage);
 
 console.log(randomMessage);
-console.log(`Random Character from message: ${randomCharacter}`);
+console.log(`The first word of the message: ${firstWord}`);
