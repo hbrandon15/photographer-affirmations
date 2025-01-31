@@ -38,7 +38,7 @@ function getRandomWords(message, numberOfWords) {
 
 const randomQuote = generateMessage();
 const firstWord = getFirstWord(randomQuote);
-const newQuote = firstWord + ' ' + getRandomWords(randomQuote, 3);
+const newQuote = firstWord + ' ' + getRandomWords(generateMessage(), 4);
 
 console.log(randomQuote);
 console.log(`The first word of the message: ${firstWord}`);
