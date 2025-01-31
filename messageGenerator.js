@@ -25,12 +25,13 @@ function getFirstWord(message) {
 }
 
 function getRandomWords(message, numberOfWords) {
-  const words = message.split(" ");
+  const cleanedMessage = message.replace(/[.-]/g, "");
+  const words = cleanedMessage.split(" ");
   const randomWords = [];
 
   for (let i = 0; i < numberOfWords; i++) {
     const randomIndex = getRandomInt(words.length);
-    randomWords.push(words[randomIndex].toLowerCase());
+    randomWords.push(words[randomIndex].trim().toLowerCase());
   }
 
   return randomWords.join(" ");
@@ -38,10 +39,9 @@ function getRandomWords(message, numberOfWords) {
 
 const randomQuote = generateMessage();
 const firstWord = getFirstWord(randomQuote);
-const shuffledQuote = firstWord + ' ' + getRandomWords(generateMessage(), 4) + '.';
+const shuffledQuote =
+  firstWord + " " + getRandomWords(generateMessage(), 4) + ".";
 
 console.log(randomQuote);
 console.log(`The first word of the quote: ${firstWord}`);
 console.log(`New random quote: ${shuffledQuote}`);
-
-
