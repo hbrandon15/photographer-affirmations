@@ -21,7 +21,14 @@ function generateMessage() {
 
 function getRandomCharacterFromMessage(message) {
 	  const randomIndex = getRandomInt(message.length);
-  return message[randomIndex];
+	  if(message[randomIndex] === ' ') {
+	    randomIndex = getRandomInt(message.length);
+	  }
+	  else {
+	    return message[randomIndex];
+	  }
+	   
+ 
 }
 
 const randomMessage = generateMessage();
